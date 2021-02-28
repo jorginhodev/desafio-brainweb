@@ -1,5 +1,12 @@
+import GlobalStyle from "./styles/global";
+
 function App() {
-  return <div>Project Cleanup</div>;
+  return (
+    <>
+      <GlobalStyle />
+      <h1>Added styled components to the project</h1>
+    </>
+  );
 }
 
 export default App;
