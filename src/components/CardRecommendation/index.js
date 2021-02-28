@@ -19,7 +19,7 @@ const CardRecommendation = () => {
                 <span>Valor: R$ 99,00</span>
             </S.Information>
 
-            <Button to="/recommendation">
+            <Button to="/recommendation" bgcolor="#4CD62B">
                 <span>Escolher a Recomendação</span>
                 <img
                     src={ArrowRightIcon}

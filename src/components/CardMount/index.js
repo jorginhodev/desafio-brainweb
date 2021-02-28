@@ -23,7 +23,7 @@ const CardMount = () => {
                 </span>
             </S.Benefits>
 
-            <Button to="/mount">
+            <Button to="/mount" bgcolor="#5965e0">
                 <span>Monte sua Pizza</span>
                 <img
                     src={ArrowRightIcon}
