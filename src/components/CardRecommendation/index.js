@@ -20,7 +20,7 @@ const CardRecommendation = () => {
             </S.Information>
 
             <Button to="/recommendation" bgcolor="#4CD62B">
-                <span>Escolher a Recomendação</span>
+                <span>Recomendação</span>
                 <img
                     src={ArrowRightIcon}
                     alt="Ícone de uma seta para a direita"

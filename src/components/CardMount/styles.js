@@ -16,6 +16,10 @@ export const Wrapper = styled.section`
     h1 {
         text-transform: uppercase;
         font-size: 20px;
+
+        @media (max-width: 580px) {
+            font-size: 16px;
+        }
     }
 `;
 
@@ -29,6 +33,11 @@ export const Benefits = styled.div`
         img {
             margin-right: 15px;
             width: 20px;
+
+            @media (max-width: 580px) {
+                margin-right: 10px;
+                width: 16px;
+            }
         }
     }
 `;

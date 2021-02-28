@@ -16,6 +16,10 @@ export const Wrapper = styled.section`
     h1 {
         text-transform: uppercase;
         font-size: 20px;
+
+        @media (max-width: 580px) {
+            font-size: 16px;
+        }
     }
 `;
 
@@ -25,10 +29,5 @@ export const Information = styled.div`
 
     span {
         display: flex;
-
-        img {
-            margin-right: 15px;
-            width: 20px;
-        }
     }
 `;
