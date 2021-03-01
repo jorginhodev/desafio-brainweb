@@ -85,8 +85,9 @@ export const RenderStep = styled.ul`
         background: #212529;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
-        margin: 20px 0;
+        margin: 30px 0;
         height: 130px;
+        cursor: pointer;
 
         @media (max-width: 720px) {
             flex-direction: column;

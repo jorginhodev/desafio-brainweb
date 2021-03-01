@@ -1,36 +1,56 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import StepProgressBar from "react-step-progress";
 import "react-step-progress/dist/index.css";
+import { toast } from "react-toastify";
 import Header from "../../components/Header";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
+import { ResumeContext } from "../../context/ResumeContext";
+import { getLocalStorage } from "../../utils/localStorage";
 import * as S from "./styles";
 
 const Mount = () => {
-    const [dough, setDough] = React.useState(undefined);
-    const [size, setSize] = React.useState(undefined);
-    const [filling, setFilling] = React.useState(undefined);
+    const resume = useContext(ResumeContext);
+    const history = useHistory();
 
-    function stepOneValidator() {
-        if (dough) return true;
-        alert("selecione um item");
-    }
+    const stepOneValidator = () => {
+        const dough = getLocalStorage("DOUGH");
+        if (!dough) {
+            toast.error("Favor escolher um tipo de massa", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+            return false;
+        }
+        return true;
+    };
 
-    function stepTwoValidator() {
-        if (size) return true;
-    }
+    const stepTwoValidator = () => {
+        const size = getLocalStorage("SIZE");
+        if (!size) {
+            toast.error("Favor escolher um tamanho", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+            return false;
+        }
+        return true;
+    };
 
-    function stepThreeValidator() {
-        if (filling) return true;
-    }
+    const stepThreeValidator = () => {
+        const filling = getLocalStorage("FILLING");
+        if (!filling) {
+            toast.error("Favor escolher um recheio", {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+            return false;
+        }
+        return true;
+    };
 
     function onSubmit() {
-        console.log("dados da pizza");
-        console.log(`Massa: ${dough}`);
-        console.log(`Tamanho: ${size}`);
-        console.log(`Recheio: ${filling}`);
-        alert("submit data");
+        resume.setOrder([resume.dough, resume.size, resume.filling]);
+        history.push("/checkout");
     }
 
     return (
@@ -53,19 +73,19 @@ const Mount = () => {
                             {
                                 label: "Escolher a massa",
                                 name: "step 1",
-                                content: <StepOne setDough={setDough} />,
+                                content: <StepOne />,
                                 validator: stepOneValidator,
                             },
                             {
                                 label: "Escolher o Tamanho",
                                 name: "step 2",
-                                content: <StepTwo setSize={setSize} />,
+                                content: <StepTwo />,
                                 validator: stepTwoValidator,
                             },
                             {
                                 label: "Escolher o Recheio",
                                 name: "step 3",
-                                content: <StepThree setFilling={setFilling} />,
+                                content: <StepThree />,
                                 validator: stepThreeValidator,
                             },
                         ]}

@@ -1,14 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { ResumeContext } from "../../context/ResumeContext";
 import { sizeList } from "../../services/api";
 import * as S from "./styles";
 
-const StepTwo = ({ setSize }) => {
-    const [isSelected, setIsSelected] = React.useState(false);
+const StepTwo = () => {
+    const resume = useContext(ResumeContext);
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleChange = (value, key) => {
+        resume.setSize(value);
+        setIsSelected(key);
+    };
 
     return (
         <>
-            <h1>Tipos de massa de pizza:</h1>
+            <h1>Escolha um tamanho de pizza:</h1>
 
             <S.RenderStep>
                 {sizeList.map((size, key) => {
@@ -16,11 +22,7 @@ const StepTwo = ({ setSize }) => {
                     return (
                         <li
                             key={size.id}
-                            onClick={() => {
-                                setSize(size);
-                                setIsSelected(key);
-                                console.log(size);
-                            }}
+                            onClick={() => handleChange(size, key)}
                             data-selected={activePosition}
                         >
                             <img
@@ -37,10 +39,6 @@ const StepTwo = ({ setSize }) => {
             </S.RenderStep>
         </>
     );
-};
-
-StepTwo.propTypes = {
-    setSize: PropTypes.func.isRequired,
 };
 
 export default StepTwo;

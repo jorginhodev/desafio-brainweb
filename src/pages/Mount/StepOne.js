@@ -1,10 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { ResumeContext } from "../../context/ResumeContext";
 import { doughList } from "../../services/api";
 import * as S from "./styles";
 
-const StepOne = ({ setDough }) => {
-    const [isSelected, setIsSelected] = React.useState(false);
+const StepOne = () => {
+    const resume = useContext(ResumeContext);
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleChange = (value, key) => {
+        resume.setDough(value);
+        setIsSelected(key);
+    };
 
     return (
         <>
@@ -12,16 +18,11 @@ const StepOne = ({ setDough }) => {
 
             <S.RenderStep>
                 {doughList.map((dough, key) => {
-                    const activePosition = isSelected === key;
                     return (
                         <li
                             key={dough.id}
-                            onClick={() => {
-                                setDough(dough);
-                                setIsSelected(key);
-                                console.log(dough);
-                            }}
-                            data-selected={activePosition}
+                            onClick={() => handleChange(dough, key)}
+                            data-selected={isSelected === key}
                         >
                             <img
                                 src={dough.image}
@@ -37,10 +38,6 @@ const StepOne = ({ setDough }) => {
             </S.RenderStep>
         </>
     );
-};
-
-StepOne.propTypes = {
-    setDough: PropTypes.func.isRequired,
 };
 
 export default StepOne;

@@ -1,10 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
+import { ResumeContext } from "../../context/ResumeContext";
 import { fillingList } from "../../services/api";
 import * as S from "./styles";
 
-const StepThree = ({ setFilling }) => {
-    const [isSelected, setIsSelected] = React.useState(false);
+const StepThree = () => {
+    const resume = useContext(ResumeContext);
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleChange = (value, key) => {
+        resume.setFilling(value);
+        setIsSelected(key);
+    };
 
     return (
         <>
@@ -16,11 +22,7 @@ const StepThree = ({ setFilling }) => {
                     return (
                         <li
                             key={filling.id}
-                            onClick={() => {
-                                setFilling(filling);
-                                setIsSelected(key);
-                                console.log(filling);
-                            }}
+                            onClick={() => handleChange(filling, key)}
                             data-selected={activePosition}
                         >
                             <img
@@ -39,10 +41,6 @@ const StepThree = ({ setFilling }) => {
             </S.RenderStep>
         </>
     );
-};
-
-StepThree.propTypes = {
-    setFilling: PropTypes.func.isRequired,
 };
 
 export default StepThree;
