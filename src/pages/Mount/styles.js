@@ -132,7 +132,3 @@ export const RenderStep = styled.ul`
         }
     }
 `;
-
-export const RenderStepTwo = styled.li``;
-
-export const RenderStepThree = styled.li``;
