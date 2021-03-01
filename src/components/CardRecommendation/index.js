@@ -14,12 +14,12 @@ const CardRecommendation = () => {
             <img src={PizzaImg} alt="Ilustração de uma pizza" />
 
             <S.Information>
-                <span>Sabor da Pizza</span>
+                <span>Pizza à Moda da Casa</span>
 
-                <span>Valor: R$ 99,00</span>
+                <span>Valor: R$ 49,00</span>
             </S.Information>
 
-            <Button to="/recommendation" bgcolor="#4CD62B">
+            <Button to="/checkout" bgcolor="#4CD62B">
                 <span>Recomendação</span>
                 <img
                     src={ArrowRightIcon}
