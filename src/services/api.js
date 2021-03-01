@@ -30,19 +30,19 @@ export const doughList = [
 
 export const sizeList = [
     {
-        id: "1",
+        id: "4",
         title: "Pizza Pequena - 4 Pedaços",
         price: 8.0,
         image: SizeImages.FourPieces,
     },
     {
-        id: "2",
+        id: "5",
         title: "Pizza Média - 8 Pedaços",
         price: 10.0,
         image: SizeImages.EightPieces,
     },
     {
-        id: "3",
+        id: "6",
         title: "Pizza Grande - 12 Pedaços",
         price: 14.0,
         image: SizeImages.TwelvePieces,
@@ -51,37 +51,37 @@ export const sizeList = [
 
 export const fillingList = [
     {
-        id: "1",
+        id: "7",
         title: "Calabresa",
         price: 10.0,
         image: DoughImages.Napolitana,
     },
     {
-        id: "2",
+        id: "8",
         title: "Confete",
         price: 10.0,
         image: DoughImages.NovaIorquina,
     },
     {
-        id: "3",
+        id: "9",
         title: "Frango c/ catupiry",
         price: 12.0,
         image: DoughImages.Siciliana,
     },
     {
-        id: "4",
+        id: "10",
         title: "Marguerita",
         price: 12.0,
         image: DoughImages.Napolitana,
     },
     {
-        id: "5",
+        id: "11",
         title: "Muçarela",
         price: 10.0,
         image: DoughImages.NovaIorquina,
     },
     {
-        id: "6",
+        id: "12",
         title: "Portuguesa",
         price: 11.0,
         image: DoughImages.Siciliana,
