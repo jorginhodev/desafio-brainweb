@@ -1,9 +1,28 @@
 import Button from "../Button";
+import { setLocalStorage } from "../../utils/localStorage";
 import PizzaImg from "../../assets/images/pizza.svg";
 import ArrowRightIcon from "../../assets/images/arrow-right.svg";
 import * as S from "./styles";
 
 const CardRecommendation = () => {
+    const dataRecommendation = [
+        {
+            price: 12,
+            title: "Napolitana",
+            id: 1,
+        },
+        {
+            price: 12,
+            title: "Pizza Grande - 12 Pedaços",
+            id: 2,
+        },
+        {
+            price: 7,
+            title: "Frango c/ catupiry",
+            id: 3,
+        },
+    ];
+
     return (
         <S.Wrapper>
             <h1>
@@ -16,10 +35,16 @@ const CardRecommendation = () => {
             <S.Information>
                 <span>Pizza à Moda da Casa</span>
 
-                <span>Valor: R$ 49,00</span>
+                <span>Valor: R$ 31,00</span>
             </S.Information>
 
-            <Button to="/checkout" bgcolor="#4CD62B">
+            <Button
+                to="/checkout"
+                bgcolor="#4db193"
+                onClick={() =>
+                    setLocalStorage("RECOMMENDATION", dataRecommendation)
+                }
+            >
                 <span>Recomendação</span>
                 <img
                     src={ArrowRightIcon}
